@@ -1,0 +1,18 @@
+<h1>Vue index des véhicules</h1>
+
+<%= form_with url: vehicules_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Rechercher un véhicule"
+  %>
+  <%= submit_tag "Chercher", class: "btn btn-primary" %>
+<% end %>
+
+
+<%@vehicules.each do |vehicule|%>
+  <div class = "card-container">
+    <img class ="img-card-index" src = "https://thumbs.dreamstime.com/b/tricycle-ancien-20743473.jpg" alt= "image-test">
+    <li class = ""><%=link_to vehicule.name, vehicule_path(vehicule)%></li>
+  </div>
+<%end%>
